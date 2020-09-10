@@ -3,4 +3,5 @@ node_modules
 .nyc_output
 coverage
 .env
+dump.rdb
 logs
