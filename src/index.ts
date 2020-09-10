@@ -11,7 +11,6 @@ import { WinstonLoggerWrapper } from "./utils/winstonLogger";
 const app = express();
 
 app.use(requestIp.mw());
-app.use(middleware.RateLimiterMiddleware);
 
 app.use(LoggerMiddleware);
 app.use("/", Router);
