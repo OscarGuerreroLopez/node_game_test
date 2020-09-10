@@ -1,4 +1,5 @@
 import * as helpers from "../radar/helpers";
+import { data1, data1Result, data2, data2Result } from "./mockData";
 
 describe("radar helpers test", () => {
   describe("checking closest_enemies", () => {
@@ -10,37 +11,14 @@ describe("radar helpers test", () => {
       expect(result).toStrictEqual(data1Result);
     });
   });
-});
 
-const data1 = [
-  {
-    enemies: {
-      number: 10,
-      type: "soldier",
-    },
-    coordinates: {
-      y: 35,
-      x: 5,
-    },
-  },
-  {
-    enemies: {
-      number: 20,
-      type: "soldier",
-    },
-    coordinates: {
-      y: 30,
-      x: 10,
-    },
-  },
-];
-const data1Result = [
-  {
-    enemies: { number: 20, type: "soldier" },
-    coordinates: { y: 30, x: 10 },
-  },
-  {
-    enemies: { number: 10, type: "soldier" },
-    coordinates: { y: 35, x: 5 },
-  },
-];
+  describe("checking furthest_enemies", () => {
+    it("should be defined", () => {
+      expect(helpers.furthest_enemies).toBeDefined();
+    });
+    it("should return {x: 5, y:35}", () => {
+      const result = helpers.furthest_enemies(data2);
+      expect(result).toStrictEqual(data2Result);
+    });
+  });
+});

@@ -10,12 +10,11 @@ export const Attack = async (data: Data): Promise<any> => {
     switch (value) {
       case ProtocolsEnum.CLOSEST_ENEMIES:
         data.scan = helpers.closest_enemies(data.scan);
-        console.log("@@@@@@@@@@@@@", data.scan);
-
         break;
 
       case ProtocolsEnum.FURTHEST_ENEMIES:
         data.scan = helpers.furthest_enemies(data.scan);
+        console.log("@@@@@@@@@@@@@", data.scan);
         break;
 
       case ProtocolsEnum.ASSIST_ALLIES:
