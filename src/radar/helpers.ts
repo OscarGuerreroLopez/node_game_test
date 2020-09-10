@@ -33,6 +33,8 @@ export const furthest_enemies = (scan: Scan[]) => {
     .map((value) => value.scan) as Scan[];
 };
 
+// Avoid attacking our mech friends, so we just get rid of them if they exists.
+// Otherwise, if there are none just return the original data
 export const avoid_mech = (scan: Scan[]) => {
   let result: Scan[] = [];
 
@@ -49,6 +51,8 @@ export const avoid_mech = (scan: Scan[]) => {
   }
 };
 
+// Check to see if there are any elements with allies in them, if so,
+// put them first so we get rid of their enemies first
 export const assist_allies = (scan: Scan[]) => {
   let result: Scan[] = [];
 
@@ -65,6 +69,7 @@ export const assist_allies = (scan: Scan[]) => {
   }
 };
 
+// making sure there are none allies nearby
 export const avoid_crossfire = (scan: Scan[]) => {
   let result: Scan[] = [];
 
@@ -81,6 +86,7 @@ export const avoid_crossfire = (scan: Scan[]) => {
   }
 };
 
+// Putting mech enemies first, if there are none then attack the first bitch you find
 export const prioritize_mech = (scan: Scan[]) => {
   let result: Scan[] = [];
 

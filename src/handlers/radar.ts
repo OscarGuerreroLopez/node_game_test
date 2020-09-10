@@ -37,7 +37,7 @@ export const Radar: Handler = async (
 
     const validProtocols: string[] = Object.values(ProtocolsEnum);
 
-    // This is just a little check to make sure that the body has what we expect,
+    // This is just a little check to make sure that the body has what we expect, to some extent,
     // obviously with more time I could have used a validator library as Joi or express-validators…….
 
     const checkRequestBody =
