@@ -6,12 +6,6 @@ interface Data {
   scan: Scan[];
 }
 export const Attack = async (data: Data): Promise<any> => {
-  console.log("@@@@@data", data);
-  // let attackValue: { distance: number; scan: Scan } = {
-  //   distance: 0,
-  //   scan: { coordinates: { x: 0, y: 0 }, enemies: { type: "", number: 0 } },
-  // };
-
   data.protocols.forEach(async (value) => {
     switch (value) {
       case ProtocolsEnum.CLOSEST_ENEMIES:
@@ -49,26 +43,16 @@ export const Attack = async (data: Data): Promise<any> => {
 };
 
 const closest_enemies = (scan: Scan[]) => {
-  let result: Scan[] = [];
-  let prevDistance = CalculateDistance(
-    scan[0].coordinates.x,
-    scan[0].coordinates.y,
-  );
-
-  console.log("!!!!!!!!closest_enemies.beforeMap.scan", scan);
+  let result: { distance?: number; scan?: Scan }[] = [];
 
   scan.map((scan: Scan) => {
     const distance = CalculateDistance(scan.coordinates.x, scan.coordinates.y);
-    console.log("Inside closest_enemies", distance);
-    if (distance < prevDistance && distance <= 100) {
-      result = [scan, ...result];
-    } else {
-      result = [...result, scan];
+    if (distance <= 100) {
+      result = [...result, { distance, scan }];
     }
-    prevDistance = distance;
   });
 
-  console.log("!!!!!!!!closest_enemies.beforeleave", result);
-
-  return result;
+  return result
+    .sort((a: any, b: any) => a.distance - b.distance)
+    .map((value) => value.scan) as Scan[];
 };
