@@ -29,10 +29,14 @@ export const Attack = async (data: Data): Promise<any> => {
 
       case ProtocolsEnum.AVOID_CROSSFIRE:
         console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!AVOID_CROSSFIRE");
+        data.scan = avoid_crossfire(data.scan);
+        console.log(data.scan);
         break;
 
       case ProtocolsEnum.PRIORITIZE_MECH:
         console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!PRIORITIZE_MECH");
+        data.scan = prioritize_mech(data.scan);
+        console.log(data.scan);
         break;
 
       case ProtocolsEnum.AVOID_MECH:
@@ -97,6 +101,38 @@ const assist_allies = (scan: Scan[]) => {
 
   scan.map((scan: Scan) => {
     if (scan.allies) {
+      result = [...result, scan];
+    }
+  });
+
+  if (result.length > 0) {
+    return result;
+  } else {
+    return scan;
+  }
+};
+
+const avoid_crossfire = (scan: Scan[]) => {
+  let result: Scan[] = [];
+
+  scan.map((scan: Scan) => {
+    if (!scan.allies) {
+      result = [...result, scan];
+    }
+  });
+
+  if (result.length > 0) {
+    return result;
+  } else {
+    return scan;
+  }
+};
+
+const prioritize_mech = (scan: Scan[]) => {
+  let result: Scan[] = [];
+
+  scan.map((scan: Scan) => {
+    if (scan.enemies.type === EnemiesEnum.MECH) {
       result = [...result, scan];
     }
   });
