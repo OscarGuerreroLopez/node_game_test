@@ -4,15 +4,16 @@ import { CheckProtocols, CheckScan } from "../utils/checkAttackBody";
 import HttpException from "../exceptions/HttpException";
 
 export interface Scan {
-  coordinates: CoordinateTypes;
+  coordinates: { x: number; y: number };
   enemies: {
-    type: EnemyTypes;
+    type: string;
     number: number;
   };
+  allies?: number;
 }
 
 export interface Protocols {
-  protocols: ProtocolsEnum;
+  protocols: string[];
 }
 
 export enum ProtocolsEnum {
@@ -28,11 +29,6 @@ export enum EnemiesEnum {
   SOLDIER = "soldier",
   MECH = "mech",
 }
-export type ProtocolsTypes = ProtocolsEnum;
-
-export type EnemyTypes = EnemiesEnum;
-
-export type CoordinateTypes = "x" | "y";
 
 export const Radar: Handler = async (
   request: Request,
@@ -40,7 +36,7 @@ export const Radar: Handler = async (
   next: NextFunction,
 ) => {
   try {
-    const { protocols, scan, allies } = request.body;
+    const { protocols, scan } = request.body;
     let result: any = {};
 
     const validProtocols: string[] = Object.values(ProtocolsEnum);
@@ -54,7 +50,7 @@ export const Radar: Handler = async (
       CheckScan(scan);
 
     if (checkRequestBody) {
-      result = await Attack({ protocols, scan, allies });
+      result = await Attack({ protocols, scan });
     } else {
       throw "Invalid body dude";
     }

@@ -4,11 +4,11 @@ export const CheckProtocols = (
   values: string[],
   validValues: string[],
 ): boolean => {
-  let validation = false;
+  let validation = true;
 
   values.forEach((value: string) => {
-    if (validValues.includes(value)) {
-      validation = true;
+    if (!validValues.includes(value)) {
+      validation = false;
     }
   });
 
@@ -16,14 +16,14 @@ export const CheckProtocols = (
 };
 
 export const CheckScan = (scan: Scan[]): boolean => {
-  let validation = false;
+  let validation = true;
 
   scan.forEach((value: Scan) => {
     if (
-      value.hasOwnProperty("coordinates") &&
-      value.hasOwnProperty("enemies")
+      !value.hasOwnProperty("coordinates") ||
+      !value.hasOwnProperty("enemies")
     ) {
-      validation = true;
+      validation = false;
     }
   });
 
