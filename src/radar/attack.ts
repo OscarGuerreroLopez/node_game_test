@@ -9,41 +9,28 @@ export const Attack = async (data: Data): Promise<any> => {
   data.protocols.forEach(async (value) => {
     switch (value) {
       case ProtocolsEnum.CLOSEST_ENEMIES:
-        console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!CLOSEST_ENEMIES");
         data.scan = closest_enemies(data.scan);
-        console.log(data.scan);
-
+        console.log("!!!!!!!CLOSEST_ENEMIES", data.scan);
         break;
 
       case ProtocolsEnum.FURTHEST_ENEMIES:
-        console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!FURTHEST_ENEMIES");
         data.scan = furthest_enemies(data.scan);
-        console.log(data.scan);
         break;
 
       case ProtocolsEnum.ASSIST_ALLIES:
-        console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!ASSIST_ALLIES");
         data.scan = assist_allies(data.scan);
-        console.log(data.scan);
         break;
 
       case ProtocolsEnum.AVOID_CROSSFIRE:
-        console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!AVOID_CROSSFIRE");
         data.scan = avoid_crossfire(data.scan);
-        console.log(data.scan);
         break;
 
       case ProtocolsEnum.PRIORITIZE_MECH:
-        console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!PRIORITIZE_MECH");
         data.scan = prioritize_mech(data.scan);
-        console.log(data.scan);
         break;
 
       case ProtocolsEnum.AVOID_MECH:
-        console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!AVOID_MECH");
         data.scan = avoid_mech(data.scan);
-        console.log(data.scan);
-
         break;
 
       default:

@@ -12,9 +12,9 @@ export interface Scan {
   allies?: number;
 }
 
-export interface Protocols {
-  protocols: string[];
-}
+// export interface Protocols {
+//   protocols: string[];
+// }
 
 export enum ProtocolsEnum {
   CLOSEST_ENEMIES = "closest-enemies",

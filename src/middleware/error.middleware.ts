@@ -11,10 +11,6 @@ export const errorMiddleware = (
 ) => {
   const status = error.status || 500;
   const message = error.message || "Something went wrong";
-  console.log("@@@@@@@@@@@@@@@@@@@@@@@@@@ ERROR @@@@@@@@@@@@@@@@@@@@@@@@@");
-  console.log(error);
-
-  console.log("@@@@@@@@@@@@@@@@@@@@@@@@@@ ERROR @@@@@@@@@@@@@@@@@@@@@@@@@");
 
   WinstonLoggerWrapper({
     level: "error",
