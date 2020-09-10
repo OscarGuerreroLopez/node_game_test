@@ -1,9 +1,8 @@
 export const CalculateDistance = (x: number, y: number): number => {
-  // const result = y - x;
-
   const xs = x * x;
   const ys = y * y;
   return Math.sqrt(xs + ys);
 };
 
-// https://www.profesorenlinea.cl/geometria/Distancia_entre_dos_puntos.html#:~:text=Cuando%20los%20puntos%20se%20encuentran,5%20%2B4%20%3D%209%20unidades.
+// To be honest I didn’t remember how to calculate this coordinate stuff, I just went to stack overflow and found a formula, seems to work though,
+// but if there is a different method I am eager to learn it

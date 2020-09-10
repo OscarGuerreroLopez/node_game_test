@@ -12,10 +12,6 @@ export interface Scan {
   allies?: number;
 }
 
-// export interface Protocols {
-//   protocols: string[];
-// }
-
 export enum ProtocolsEnum {
   CLOSEST_ENEMIES = "closest-enemies",
   FURTHEST_ENEMIES = "furthest-enemies",
@@ -40,6 +36,9 @@ export const Radar: Handler = async (
     let result: any = {};
 
     const validProtocols: string[] = Object.values(ProtocolsEnum);
+
+    // This is just a little check to make sure that the body has what we expect,
+    // obviously with more time I could have used a validator library as Joi or express-validators…….
 
     const checkRequestBody =
       protocols &&
