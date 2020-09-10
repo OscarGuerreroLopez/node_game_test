@@ -7,7 +7,7 @@ Entry test, based on my boilerplate https://github.com/OscarGuerreroLopez/node_b
 The boiler plate includes route handling, error handling, and also logging. I removed the rate limiter with redis just in case you run into issues while trying to execute it.
 
 Hope I didn´t forget anything, I am more used to functional programming as you can see.
-But if you guys are more into object oriented I can get used to it, not a problem.
+But if you guys are more into object oriented I can get used to it, not a problem. I have worked with NEST.js which it is all about classes, at https://github.com/OscarGuerreroLopez if you check the auth projects, those are not done, working on them whenever I have some free time which is not much to my regret.
 
 ## Run it
 
