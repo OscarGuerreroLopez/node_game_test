@@ -1,4 +1,4 @@
-import { Scan, ProtocolsEnum } from "../handlers/radar";
+import { Scan, ProtocolsEnum, EnemiesEnum } from "../handlers/radar";
 import { CalculateDistance } from "../utils/calculateDistance";
 
 interface Data {
@@ -11,6 +11,7 @@ export const Attack = async (data: Data): Promise<any> => {
       case ProtocolsEnum.CLOSEST_ENEMIES:
         console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!CLOSEST_ENEMIES");
         data.scan = closest_enemies(data.scan);
+        console.log(data.scan);
 
         break;
 
@@ -32,6 +33,9 @@ export const Attack = async (data: Data): Promise<any> => {
 
       case ProtocolsEnum.AVOID_MECH:
         console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!AVOID_MECH");
+        data.scan = avoid_mech(data.scan);
+        console.log(data.scan);
+
         break;
 
       default:
@@ -55,4 +59,16 @@ const closest_enemies = (scan: Scan[]) => {
   return result
     .sort((a: any, b: any) => a.distance - b.distance)
     .map((value) => value.scan) as Scan[];
+};
+
+const avoid_mech = (scan: Scan[]) => {
+  let result: Scan[] = [];
+
+  scan.map((scan: Scan) => {
+    if (scan.enemies.type !== EnemiesEnum.MECH) {
+      result = [...result, scan];
+    }
+  });
+
+  return result;
 };
