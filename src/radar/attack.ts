@@ -23,6 +23,8 @@ export const Attack = async (data: Data): Promise<any> => {
 
       case ProtocolsEnum.ASSIST_ALLIES:
         console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!ASSIST_ALLIES");
+        data.scan = assist_allies(data.scan);
+        console.log(data.scan);
         break;
 
       case ProtocolsEnum.AVOID_CROSSFIRE:
@@ -88,4 +90,20 @@ const avoid_mech = (scan: Scan[]) => {
   });
 
   return result;
+};
+
+const assist_allies = (scan: Scan[]) => {
+  let result: Scan[] = [];
+
+  scan.map((scan: Scan) => {
+    if (scan.allies) {
+      result = [...result, scan];
+    }
+  });
+
+  if (result.length > 0) {
+    return result;
+  } else {
+    return scan;
+  }
 };
