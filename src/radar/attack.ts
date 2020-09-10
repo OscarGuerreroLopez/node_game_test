@@ -10,7 +10,6 @@ export const Attack = async (data: Data): Promise<any> => {
     switch (value) {
       case ProtocolsEnum.CLOSEST_ENEMIES:
         data.scan = closest_enemies(data.scan);
-        console.log("!!!!!!!CLOSEST_ENEMIES", data.scan);
         break;
 
       case ProtocolsEnum.FURTHEST_ENEMIES:
