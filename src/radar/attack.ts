@@ -17,6 +17,8 @@ export const Attack = async (data: Data): Promise<any> => {
 
       case ProtocolsEnum.FURTHEST_ENEMIES:
         console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!FURTHEST_ENEMIES");
+        data.scan = furthest_enemies(data.scan);
+        console.log(data.scan);
         break;
 
       case ProtocolsEnum.ASSIST_ALLIES:
@@ -58,6 +60,21 @@ const closest_enemies = (scan: Scan[]) => {
 
   return result
     .sort((a: any, b: any) => a.distance - b.distance)
+    .map((value) => value.scan) as Scan[];
+};
+
+const furthest_enemies = (scan: Scan[]) => {
+  let result: { distance?: number; scan?: Scan }[] = [];
+
+  scan.map((scan: Scan) => {
+    const distance = CalculateDistance(scan.coordinates.x, scan.coordinates.y);
+    if (distance <= 100) {
+      result = [...result, { distance, scan }];
+    }
+  });
+
+  return result
+    .sort((a: any, b: any) => b.distance - a.distance)
     .map((value) => value.scan) as Scan[];
 };
 
