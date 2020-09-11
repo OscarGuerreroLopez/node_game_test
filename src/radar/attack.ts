@@ -29,10 +29,7 @@ export const Attack = async (data: Data): Promise<any> => {
         break;
 
       case ProtocolsEnum.AVOID_MECH:
-        console.log("#############", data.scan);
         data.scan = helpers.avoid_mech(data.scan);
-        console.log("@@@@@@@@@@@@@", data.scan);
-
         break;
 
       default:

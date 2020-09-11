@@ -136,3 +136,31 @@ export const data6Result = [
     enemies: { type: "soldier", number: 10 },
   },
 ];
+
+export const protocolValues = [
+  "closest-enemies",
+  "prioritize-mech",
+  "avoid-crossfire",
+];
+export const validValues = [
+  "closest-enemies",
+  "furthest-enemies",
+  "assist-allies",
+  "avoid-crossfire",
+  "prioritize-mech",
+  "avoid-mech",
+];
+
+export const protocolValuesError = [
+  "closest-enemies",
+  "prioritize-mechx",
+  "avoid-crossfire",
+];
+export const validValuesError = [
+  "closest-enemies",
+  "furthest-enemies",
+  "assist-alliesx",
+  "avoid-crossfire",
+  "prioritize-mech",
+  "avoid-mech",
+];
