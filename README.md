@@ -19,6 +19,8 @@ npm install and then npm run start:dev or start:tsnode
 
 npm run test to run the test suit
 
+Also you can just build it and run it as it is
+
 ```bash
 $ npm install
 
@@ -31,7 +33,11 @@ $ npm run build
 $ node ./dist/src/index.js
 
 
-
 ```
 
-Also you can just build it and run it as it is
+you can also run it in docker
+
+```bash
+$ docker-compose build && docker-compose up
+
+```

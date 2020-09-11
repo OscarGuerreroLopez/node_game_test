@@ -1,0 +1,20 @@
+version: "3"
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: nodejs
+    container_name: seedtag
+    restart: always
+    env_file: .env
+    ports:
+      - "8888:8888"
+
+    networks:
+      - api-test-network
+
+networks:
+  api-test-network:
+    driver: bridge
