@@ -14,7 +14,6 @@ export const Attack = async (data: Data): Promise<any> => {
 
       case ProtocolsEnum.FURTHEST_ENEMIES:
         data.scan = helpers.furthest_enemies(data.scan);
-        console.log("@@@@@@@@@@@@@", data.scan);
         break;
 
       case ProtocolsEnum.ASSIST_ALLIES:
@@ -30,7 +29,10 @@ export const Attack = async (data: Data): Promise<any> => {
         break;
 
       case ProtocolsEnum.AVOID_MECH:
+        console.log("#############", data.scan);
         data.scan = helpers.avoid_mech(data.scan);
+        console.log("@@@@@@@@@@@@@", data.scan);
+
         break;
 
       default:
