@@ -25,6 +25,13 @@ $ npm install
 $ npm run start:tsnode
 
 $ npm run start:dev
+
+$ npm run build
+
+$ node ./dist/src/index.js
+
+
+
 ```
 
 Also you can just build it and run it as it is
