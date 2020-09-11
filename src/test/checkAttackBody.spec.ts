@@ -1,5 +1,3 @@
-// import { CheckProtocols, CheckScan } from "../utils/checkAttackBody";
-
 import { CheckProtocols } from "../utils/checkAttackBody";
 import { protocolValues, validValues, protocolValuesError } from "./mockData";
 
@@ -22,25 +20,3 @@ describe("checkAttackBody test", () => {
     });
   });
 });
-
-// console.log(values);
-// [ 'avoid-mech' ]
-// console.log(validValues);
-// [
-//   'closest-enemies',
-//   'furthest-enemies',
-//   'assist-allies',
-//   'avoid-crossfire',
-//   'prioritize-mech',
-//   'avoid-mech'
-// ]
-
-// [ 'closest-enemies', 'prioritize-mech', 'avoid-crossfire' ]
-// [
-//   'closest-enemies',
-//   'furthest-enemies',
-//   'assist-allies',
-//   'avoid-crossfire',
-//   'prioritize-mech',
-//   'avoid-mech'
-// ]
