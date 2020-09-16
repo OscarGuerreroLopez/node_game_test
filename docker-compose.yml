@@ -6,7 +6,7 @@ services:
       context: .
       dockerfile: Dockerfile
     image: nodejs
-    container_name: seedtag
+    container_name: nodeTest
     restart: always
     env_file: .env
     ports:
