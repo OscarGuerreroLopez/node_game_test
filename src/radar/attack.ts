@@ -1,10 +1,5 @@
-import { Scan } from "../handlers/radar";
+import { Data } from "./types";
 import * as helpers from "./helpers";
-
-interface Data {
-  protocols: string[];
-  scan: Scan[];
-}
 
 export const Attack = async (data: Data): Promise<any> => {
   try {

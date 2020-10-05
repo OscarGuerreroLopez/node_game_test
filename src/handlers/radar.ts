@@ -2,29 +2,7 @@ import { Handler, Response, Request, NextFunction } from "express";
 import { Attack } from "../radar";
 import { CheckProtocols, CheckScan } from "../utils/checkAttackBody";
 import HttpException from "../exceptions/HttpException";
-
-export interface Scan {
-  coordinates: { x: number; y: number };
-  enemies: {
-    type: string;
-    number: number;
-  };
-  allies?: number;
-}
-
-export enum ProtocolsEnum {
-  CLOSEST_ENEMIES = "closest-enemies",
-  FURTHEST_ENEMIES = "furthest-enemies",
-  ASSIST_ALLIES = "assist-allies",
-  AVOID_CROSSFIRE = "avoid-crossfire",
-  PRIORITIZE_MECH = "prioritize-mech",
-  AVOID_MECH = "avoid-mech",
-}
-
-export enum EnemiesEnum {
-  SOLDIER = "soldier",
-  MECH = "mech",
-}
+import { ProtocolsEnum } from "../radar";
 
 export const Radar: Handler = async (
   request: Request,
