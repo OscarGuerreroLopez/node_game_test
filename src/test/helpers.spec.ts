@@ -1,4 +1,4 @@
-import * as helpers from "../radar/helpers";
+import * as helpers from "../radar/attackProtocols";
 import {
   data1,
   data1Result,

@@ -1,5 +1,5 @@
 import { Data } from "./types";
-import * as helpers from "./helpers";
+import * as helpers from "./attackProtocols";
 
 export const Attack = async (data: Data): Promise<any> => {
   try {
