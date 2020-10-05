@@ -1,47 +1,28 @@
-import { Scan, ProtocolsEnum } from "../handlers/radar";
+import { Scan } from "../handlers/radar";
 import * as helpers from "./helpers";
 
 interface Data {
   protocols: string[];
   scan: Scan[];
 }
+
 export const Attack = async (data: Data): Promise<any> => {
-  data.protocols.forEach(async (value) => {
-    switch (value) {
-      case ProtocolsEnum.CLOSEST_ENEMIES:
-        data.scan = helpers.closest_enemies(data.scan);
-        break;
+  try {
+    data.protocols.forEach(async (value) => {
+      const protocolToExecute = helpers.Protocols.get(value);
 
-      case ProtocolsEnum.FURTHEST_ENEMIES:
-        data.scan = helpers.furthest_enemies(data.scan);
-        break;
+      const result = protocolToExecute(data.scan);
+      data.scan = result;
+    });
 
-      case ProtocolsEnum.ASSIST_ALLIES:
-        data.scan = helpers.assist_allies(data.scan);
-        break;
+    // making sure I return the response in the format that the test is expecting, x first:
+    const response = {
+      x: data.scan[0].coordinates.x,
+      y: data.scan[0].coordinates.y,
+    };
 
-      case ProtocolsEnum.AVOID_CROSSFIRE:
-        data.scan = helpers.avoid_crossfire(data.scan);
-        break;
-
-      case ProtocolsEnum.PRIORITIZE_MECH:
-        data.scan = helpers.prioritize_mech(data.scan);
-        break;
-
-      case ProtocolsEnum.AVOID_MECH:
-        data.scan = helpers.avoid_mech(data.scan);
-        break;
-
-      default:
-        break;
-    }
-  });
-
-  // making sure I return the response in the format that the test is expecting, x first:
-  const response = {
-    x: data.scan[0].coordinates.x,
-    y: data.scan[0].coordinates.y,
-  };
-
-  return response;
+    return response;
+  } catch (error) {
+    throw error;
+  }
 };

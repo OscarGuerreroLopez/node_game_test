@@ -25,6 +25,7 @@ process.on("uncaughtException", (e: any) => {
     identifier: "UncaughtException",
     stack: e,
   });
+  console.log(e);
 
   process.exit(1);
 });
@@ -37,6 +38,8 @@ process.on("unhandledRejection", (e: any) => {
     identifier: "UnhandledRejection",
     stack: e,
   });
+  console.log(e);
+
   process.exit(1);
 });
 
