@@ -1,6 +1,6 @@
 import { Handler, Response, Request, NextFunction } from "express";
 import { Attack } from "../radar";
-import { CheckProtocols, CheckScan } from "../utils/checkAttackBody";
+import { CheckProtocols, CheckScan } from "../radar/checkAttackBody";
 import HttpException from "../exceptions/HttpException";
 import { ProtocolsEnum } from "../radar";
 

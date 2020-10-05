@@ -1,4 +1,4 @@
-import { Scan } from "../radar";
+import { Scan } from ".";
 
 export const CheckProtocols = (
   values: string[],

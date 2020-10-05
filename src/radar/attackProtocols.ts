@@ -1,5 +1,5 @@
 import { Scan, EnemiesEnum, ProtocolsEnum } from "./types";
-import { CalculateDistance } from "../utils/calculateDistance";
+import { CalculateDistance } from "./calculateDistance";
 
 // Function to sort the closest enemies based on the distance. If distance is bigger than 100 then ignore
 export const closest_enemies = (scan: Scan[]) => {

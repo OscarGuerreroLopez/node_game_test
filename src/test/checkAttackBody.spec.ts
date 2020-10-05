@@ -1,4 +1,4 @@
-import { CheckProtocols } from "../utils/checkAttackBody";
+import { CheckProtocols } from "../radar/checkAttackBody";
 import { protocolValues, validValues, protocolValuesError } from "./mockData";
 
 describe("checkAttackBody test", () => {
