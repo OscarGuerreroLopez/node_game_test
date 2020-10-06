@@ -28,7 +28,7 @@ declare global {
   }
 
   interface AttackResponse {
-    x: string;
-    y: string;
+    x: number;
+    y: number;
   }
 }

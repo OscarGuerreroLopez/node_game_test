@@ -9,7 +9,7 @@ export const Radar: Handler = async (
   next: NextFunction,
 ) => {
   try {
-    let result: AttackResponse = { x: "0", y: "0" };
+    let result: AttackResponse = { x: 0, y: 0 };
     const { protocols, scan } = request.body;
 
     // This is just a little check to make sure that the body has what we expect, to some extent,

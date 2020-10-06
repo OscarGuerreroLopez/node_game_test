@@ -12,8 +12,8 @@ export const Attack = async (data: Data): Promise<AttackResponse> => {
 
     // making sure I return the response in the format that the test is expecting, x first:
     const response: AttackResponse = {
-      x: data.scan[0].coordinates.x.toString(),
-      y: data.scan[0].coordinates.y.toString(),
+      x: data.scan[0].coordinates.x,
+      y: data.scan[0].coordinates.y,
     };
 
     return response;
