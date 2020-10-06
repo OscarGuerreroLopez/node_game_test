@@ -26,4 +26,9 @@ declare global {
     stack?: string;
     identifier: LoggerIdentifier;
   }
+
+  interface AttackResponse {
+    x: string;
+    y: string;
+  }
 }
